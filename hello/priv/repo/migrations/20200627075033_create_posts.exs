@@ -4,7 +4,7 @@ defmodule Hello.Repo.Migrations.CreatePosts do
   def change do
     create table(:posts) do
       add :body, :string
-      add :words_count, :integer
+      add :words_count, :integer, default: 0
 
       timestamps()
     end

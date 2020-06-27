@@ -21,6 +21,8 @@ defmodule HelloWeb.Router do
     get "/hello/:messenger", HelloController, :show
 
     resources "/posts", PostController
+    # json api
+    resources "/comments", CommentController, except: [:new, :edit]
   end
 
   # Other scopes may use custom stacks.

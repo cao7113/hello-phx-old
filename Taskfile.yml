@@ -18,7 +18,7 @@ tasks:
       # - open http://localhost:4000/dashboard
   db-mig:
     cmds:
-      - cd hello && mix ecto.reset
+      - cd hello && mix ecto.reset # --no-start
 
   # mix help --search "phx"
 
