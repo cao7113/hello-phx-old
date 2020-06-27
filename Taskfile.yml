@@ -30,12 +30,13 @@ tasks:
     cmds:
       # elixir by asdf
       - mix local.hex
+      - mix local.phx
 
   create-hello:
     desc: create hello project by https://hexdocs.pm/phoenix/up_and_running.html#content
     cmds:
       # https://hexdocs.pm/phoenix/Mix.Tasks.Phx.New.html
-      - mix phx.new hello --module Hello --database mysql --live --verbose
+      - mix phx.new hello --database mysql --verbose
       - |
         cd hello
         mix ecto.create

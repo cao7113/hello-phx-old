@@ -13,10 +13,10 @@ config :hello,
 # Configures the endpoint
 config :hello, HelloWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "/1YLkx+m+sjQMagCuLVlzFDIlE30WmL9jiyJTh0ewen2VMvtH3GQEOoQJjKbjuCc",
+  secret_key_base: "NXL2sLET9byrKNmNbksXm2YwUTCBKdWyDcozB2Ls2XO/1E6t7FLDTWIom8ZjsB9/",
   render_errors: [view: HelloWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: Hello.PubSub,
-  live_view: [signing_salt: "HOob8WsQ"]
+  live_view: [signing_salt: "K87zHMqx"]
 
 # Configures Elixir's Logger
 config :logger, :console,
