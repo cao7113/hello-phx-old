@@ -20,6 +20,8 @@ tasks:
     cmds:
       - cd hello && mix ecto.reset
 
+  # mix help --search "phx"
+
   stack:
     cmds:
       - asdf current
