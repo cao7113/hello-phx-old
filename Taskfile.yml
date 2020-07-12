@@ -22,6 +22,10 @@ tasks:
 
   # mix help --search "phx"
 
+  routes:
+    cmds:
+      - cd hello && mix phx.routes
+
   stack:
     cmds:
       - asdf current
