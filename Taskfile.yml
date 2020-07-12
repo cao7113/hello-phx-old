@@ -11,6 +11,11 @@ tasks:
   test:
     cmds:
       - cd hello && mix test
+  
+  fmt:
+    cmds:
+      - cd hello && mix format
+      
   open:
     cmds:
       - open http://localhost:4000

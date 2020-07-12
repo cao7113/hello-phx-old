@@ -4,7 +4,7 @@ defmodule HelloWeb.Api.PostControllerTest do
   alias Hello.Blog
   alias Hello.Blog.Post
 
-  @create_attrs %{}
+  @create_attrs %{body: "test"}
   @update_attrs %{}
   @invalid_attrs %{}
 
@@ -19,7 +19,7 @@ defmodule HelloWeb.Api.PostControllerTest do
 
   describe "index" do
     test "lists all posts", %{conn: conn} do
-      conn = get(conn, Routes.api_post_path(conn, :index))
+      conn = get(conn, Routes.post_path(conn, :index))
       assert json_response(conn, 200)["data"] == []
     end
   end
