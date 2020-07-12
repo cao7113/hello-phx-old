@@ -21,11 +21,10 @@ defmodule HelloWeb.Router do
     get "/hello/:messenger", HelloController, :show
 
     resources "/posts", PostController
-    resources "/comments", CommentController, except: [:new, :edit]
   end
 
   # Other scopes may use custom stacks.
-  scope "/api", HelloWeb.Api do
+  scope "/api", HelloWeb.Api, as: :api do
     pipe_through :api
     resources "/posts", PostController
   end

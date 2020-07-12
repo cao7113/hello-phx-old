@@ -3,18 +3,18 @@ version: '2'
 tasks:
   run:
     cmds:
-      - cd hello && mix phx.server
+      - mix phx.server
       #- iex -S mix phx.server
   sh:
     cmds:
-      - cd hello && iex -S mix
+      - iex -S mix
   test:
     cmds:
-      - cd hello && mix test
+      - mix test
   
   fmt:
     cmds:
-      - cd hello && mix format
+      - mix format
       
   open:
     cmds:
@@ -23,13 +23,16 @@ tasks:
       # - open http://localhost:4000/dashboard
   db-mig:
     cmds:
-      - cd hello && mix ecto.reset # --no-start
+      - mix ecto.reset # --no-start
+  sql:
+    cmds:
+      - mycli -uroot hello_dev
 
   # mix help --search "phx"
 
   routes:
     cmds:
-      - cd hello && mix phx.routes
+      - mix phx.routes
 
   stack:
     cmds:

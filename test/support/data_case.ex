@@ -52,4 +52,8 @@ defmodule Hello.DataCase do
       end)
     end)
   end
+
+  def reload(%module{id: id}) do
+    Hello.Repo.get(module, id)
+  end
 end
