@@ -25,9 +25,10 @@ defmodule HelloWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", HelloWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", HelloWeb.Api do
+    pipe_through :api
+    resources "/posts", PostController
+  end
 
   # Enables LiveDashboard only for development
   #

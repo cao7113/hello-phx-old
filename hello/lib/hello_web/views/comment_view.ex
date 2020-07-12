@@ -11,8 +11,6 @@ defmodule HelloWeb.CommentView do
   end
 
   def render("comment.json", %{comment: comment}) do
-    %{id: comment.id,
-      content: comment.content,
-      likes_count: comment.likes_count}
+    %{id: comment.id, content: comment.content, likes_count: comment.likes_count}
   end
 end

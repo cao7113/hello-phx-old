@@ -8,6 +8,5 @@ defmodule Hello.Repo.Migrations.CreateComments do
 
       timestamps()
     end
-
   end
 end
