@@ -8,7 +8,7 @@ use Mix.Config
 config :hello, Hello.Repo,
   username: "root",
   password: "",
-  database: "hello_test#{System.get_env("MIX_TEST_PARTITION")}",
+  database: "hello_phx_test#{System.get_env("MIX_TEST_PARTITION")}",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
 

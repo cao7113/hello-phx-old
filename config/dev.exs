@@ -4,7 +4,7 @@ use Mix.Config
 config :hello, Hello.Repo,
   username: "root",
   password: "",
-  database: "hello_dev",
+  database: "hello_phx_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10

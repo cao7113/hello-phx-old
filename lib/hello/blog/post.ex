@@ -14,6 +14,7 @@ defmodule Hello.Blog.Post do
     post
     |> cast(attrs, [:body])
     |> validate_required([:body])
-    |> validate_length(:body, min: 3)
+    |> validate_length(:body, min: 4)
+    # |> put_change(:words_count, attrs[:body] |> to_string |> String.length)
   end
 end

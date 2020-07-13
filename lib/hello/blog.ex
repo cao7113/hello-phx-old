@@ -70,6 +70,7 @@ defmodule Hello.Blog do
   def update_post(%Post{} = post, attrs) do
     post
     |> Post.changeset(attrs)
+    |> IO.inspect()
     |> Repo.update()
   end
 

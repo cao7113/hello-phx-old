@@ -34,6 +34,52 @@ tasks:
     cmds:
       - mix phx.routes
 
+  local-prod-config:
+    desc: config prod mode
+    cmds:
+      - |
+        # mix phx.gen.secret
+        # xX+7kG+1kU0/LmKJEFcMCia+iLmhztf3BO+6taJGWE38Cm7My4PgcWtMRibrIy0X
+  
+  local-prod-db:
+    desc: prepare local prod db
+    env:
+      SECRET_KEY_BASE: "xX+7kG+1kU0/LmKJEFcMCia+iLmhztf3BO+6taJGWE38Cm7My4PgcWtMRibrIy0X"
+      DATABASE_URL: ecto://root:@localhost/hello_phx_prod
+    cmds:
+      - MIX_ENV=prod mix ecto.setup
+
+  local-prod:
+    desc: run phx server in production mode
+    env:
+      SECRET_KEY_BASE: "xX+7kG+1kU0/LmKJEFcMCia+iLmhztf3BO+6taJGWE38Cm7My4PgcWtMRibrIy0X"
+      DATABASE_URL: ecto://root:@localhost/hello_phx_prod
+      STATIC_HOST_PORT: 4010
+    cmds:
+      - |
+        echo prod env:
+        echo SECRET_KEY_BASE=${SECRET_KEY_BASE}
+        echo DATABASE_URL=${DATABASE_URL}
+        echo STATIC_HOST_PORT=${STATIC_HOST_PORT}
+      - |
+        # Initial setup
+        mix deps.get --only prod
+        MIX_ENV=prod mix compile
+
+        # Compile assets
+        npm run deploy --prefix ./assets
+        mix phx.digest
+
+        # Custom tasks (like DB migrations)
+        MIX_ENV=prod mix ecto.migrate
+
+        # Finally run the server
+        PORT=4001 MIX_ENV=prod mix phx.server
+        # in detached mode
+        # PORT=4001 MIX_ENV=prod elixir --erl "-detached" -S mix phx.server
+        # in iex shell
+        # PORT=4001 MIX_ENV=prod iex -S mix phx.server
+
   stack:
     cmds:
       - asdf current

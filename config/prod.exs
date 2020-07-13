@@ -1,5 +1,8 @@
 use Mix.Config
 
+host_domain = System.get_env("STATIC_HOST_DOMAIN", "localhost")
+host_port = System.get_env("STATIC_HOST_PORT", "80") |> String.to_integer()
+
 # For production, don't forget to configure the url host
 # to something meaningful, Phoenix uses this information
 # when generating URLs.
@@ -10,7 +13,7 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :hello, HelloWeb.Endpoint,
-  url: [host: "example.com", port: 80],
+  url: [host: host_domain, port: host_port],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
 # Do not print debug messages in production
