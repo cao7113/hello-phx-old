@@ -33,17 +33,11 @@ tasks:
   routes:
     cmds:
       - mix phx.routes
-
-  local-prod-config:
-    desc: config prod mode
-    cmds:
-      - |
-        # mix phx.gen.secret
-        # xX+7kG+1kU0/LmKJEFcMCia+iLmhztf3BO+6taJGWE38Cm7My4PgcWtMRibrIy0X
   
   local-prod-db:
     desc: prepare local prod db
     env:
+      # mix phx.gen.secret
       SECRET_KEY_BASE: "xX+7kG+1kU0/LmKJEFcMCia+iLmhztf3BO+6taJGWE38Cm7My4PgcWtMRibrIy0X"
       DATABASE_URL: ecto://root:@localhost/hello_phx_prod
     cmds:
